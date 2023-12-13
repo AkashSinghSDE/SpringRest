@@ -1,57 +1,28 @@
 package entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "courses")
 public class Course {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "desc")
     private String description;
 
-    public Course() {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
 
-    @Override
-    public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
-
-    public Course(Long id) {
-        super();
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
